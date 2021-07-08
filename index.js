@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookeieSession = require('cookie-session');
 const passport = require('passport');
-const keys = undefined || require('./../../config/keys');
+const keys = require('./../../config/keys');
 
 require('./src/server/models/users.model');
 require('./src/server/services/passport.service');
