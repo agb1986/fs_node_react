@@ -2,12 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookeieSession = require('cookie-session');
 const passport = require('passport');
-const keys = require('./../../config/keys');
+const keys = require('./src/config/keys');
 
 require('./src/server/models/users.model');
 require('./src/server/services/passport.service');
 
-mongoose.connect(process.env.MONGO_URI || keys.mongoURI, {
+mongoose.connect(keys.mongoURI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -18,7 +18,7 @@ const app = express();
 app.use(
     cookeieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 day as millseconds
-        keys: [process.env.COOKIE_KEY || keys.cookieKey],
+        keys: [keys.cookieKey],
     })
 );
 
