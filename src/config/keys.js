@@ -6,12 +6,5 @@ if (process.env.NODE_ENV === 'production') {
         cookieKey: process.env.COOKIE_KEY,
     };
 } else {
-    const keysDev = require('./keys.dev');
-
-    module.exports = {
-        googleCilentID: keysDev.googleCilentID,
-        googleClientSecret: keysDev.googleClientSecret,
-        mongoURI: keysDev.mongoURI,
-        cookieKey: keysDev.cookieKey,
-    };
+    module.exports = require('./keys.dev');
 }
