@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookeieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./src/config/keys');
+const Logger = require('agb-logger');
 
 require('./src/server/models/users.model');
 require('./src/server/services/passport.service');
@@ -27,5 +28,6 @@ app.use(passport.session());
 
 require('./src/server/routes/auth.route')(app);
 
+Logger.debug('Creating Sever');
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
